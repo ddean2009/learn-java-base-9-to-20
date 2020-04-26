@@ -11,6 +11,7 @@
     <modules>
         <module>java-base</module>
         <module>java-9</module>
+        <module>java-14</module>
     </modules>
     <dependencies>
         <dependency>
