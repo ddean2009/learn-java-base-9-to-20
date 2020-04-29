@@ -9,9 +9,9 @@ import java.time.Duration;
 
 /**
  * @author wayne
- * @version EventStreamusage,  2020/4/28 10:32 上午
+ * @version JFREventStream,  2020/4/28 10:32 上午
  */
-public class EventStreamusage {
+public class JFREventStream {
 
     public static void main(String[] args) throws IOException, ParseException {
         //default or profile 两个默认的profiling configuration files
