@@ -16,6 +16,10 @@
         <module>java-12</module>
         <module>java-11</module>
         <module>java-10</module>
+        <module>java-9-module-service</module>
+        <module>java-9-module-service-a</module>
+        <module>java-9-module-service-b</module>
+        <module>java-9-module-controller</module>
     </modules>
     <dependencies>
         <dependency>
