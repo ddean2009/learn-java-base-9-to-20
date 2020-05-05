@@ -4,5 +4,6 @@
  */
 module com.flydean.service {
 //    opens com.flydean.service.subservice;
-    exports com.flydean.service to com.flydean.controller, com.flydean.servicea, com.flydean.serviceb;
+//    exports com.flydean.service to com.flydean.controller, com.flydean.servicea, com.flydean.serviceb;
+    exports com.flydean.service;
 }
