@@ -9,15 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>java-14</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.10</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
+    <artifactId>cust-annotation-processor</artifactId>
 
     <build>
         <plugins>
@@ -28,13 +20,9 @@
                 <configuration>
                     <source>14</source>
                     <target>14</target>
-                    <compilerArgs>
-                        --enable-preview
-                    </compilerArgs>
-                    <fork>true</fork>
+                    <proc>none</proc>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>

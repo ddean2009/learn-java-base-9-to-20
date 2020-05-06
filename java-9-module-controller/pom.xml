@@ -65,10 +65,6 @@
                 <configuration>
                     <source>14</source>
                     <target>14</target>
-                    <compilerArgs>
-                        --enable-preview
-                    </compilerArgs>
-                    <fork>true</fork>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>

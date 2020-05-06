@@ -20,6 +20,8 @@
         <module>java-9-module-service-a</module>
         <module>java-9-module-service-b</module>
         <module>java-9-module-controller</module>
+        <module>cust-annotation-processor</module>
+        <module>cust-annotation-usage</module>
     </modules>
     <dependencies>
         <dependency>
@@ -35,7 +37,6 @@
         </dependency>
     </dependencies>
 
-
     <build>
         <plugins>
             <plugin>
@@ -45,21 +46,9 @@
                 <configuration>
                     <source>14</source>
                     <target>14</target>
-                    <compilerArgs>
-                        --enable-preview
-                    </compilerArgs>
-                    <fork>true</fork>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>1.18.10</version>
-                        </path>
-                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 
 </project>

@@ -4,7 +4,8 @@
  */
 
 module com.flydean.servicea {
-    requires transitive com.flydean.service;
+    requires com.flydean.service;
+//    requires transitive com.flydean.service;
     provides com.flydean.service.ModuleService with com.flydean.servicea.ModuleServiceA;
     exports com.flydean.servicea;
 }
