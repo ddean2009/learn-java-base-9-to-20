@@ -22,6 +22,8 @@
         <module>java-9-module-controller</module>
         <module>cust-annotation-processor</module>
         <module>cust-annotation-usage</module>
+        <module>maven-usage</module>
+        <module>github-maven-repositry</module>
     </modules>
     <dependencies>
         <dependency>
