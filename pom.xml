@@ -24,6 +24,7 @@
         <module>cust-annotation-usage</module>
         <module>maven-usage</module>
         <module>github-maven-repositry</module>
+        <module>jol</module>
     </modules>
     <dependencies>
         <dependency>
