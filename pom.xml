@@ -25,6 +25,7 @@
         <module>maven-usage</module>
         <module>github-maven-repositry</module>
         <module>jol</module>
+        <module>jvm</module>
     </modules>
     <dependencies>
         <dependency>

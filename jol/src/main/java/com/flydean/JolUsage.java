@@ -30,6 +30,7 @@ public class JolUsage {
         log.info("{}",ClassLayout.parseClass(Long.class).toPrintable());
         log.info("{}",ClassLayout.parseInstance(1234567890111112L).toPrintable());
         log.info("{}",ClassLayout.parseClass(Boolean.class).toPrintable());
+        log.info("{}",ClassLayout.parseClass(Integer.class).toPrintable());
         log.info("{}",ClassLayout.parseInstance(true).toPrintable());
         log.info("{}",ClassLayout.parseClass(byte[].class).toPrintable());
         log.info("{}",ClassLayout.parseInstance("www.flydean.com".getBytes()).toPrintable());
