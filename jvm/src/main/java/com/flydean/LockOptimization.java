@@ -19,7 +19,11 @@ import java.util.concurrent.TimeUnit;
 @Warmup(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 1,
-        jvmArgsPrepend = {"-XX:-UseBiasedLocking","-XX:+UnlockDiagnosticVMOptions","-XX:+PrintAssembly"}
+        jvmArgsPrepend = {"-XX:-UseBiasedLocking",
+                "-XX:+UnlockDiagnosticVMOptions",
+                "-XX:CompileCommand=print,com.flydean.LockOptimization::test"
+//                "-XX:+PrintAssembly"
+}
         )
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
@@ -32,7 +36,7 @@ public class LockOptimization {
     public void test() {
         for (int c = 0; c < 1000; c++) {
             synchronized (this) {
-                x += 0xFF;
+                x += 0x42;
             }
         }
     }

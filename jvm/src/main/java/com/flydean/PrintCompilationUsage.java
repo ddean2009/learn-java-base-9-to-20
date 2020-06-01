@@ -10,24 +10,25 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author wayne
- * @version LogCompilationUsage,  2020/5/29 9:07 上午
+ * @version PrintCompilationUsage,  2020/5/29 9:07 上午
  */
-@Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1
-//        jvmArgsPrepend = {"-XX:+UnlockDiagnosticVMOptions",
-//                "-XX:+LogCompilation",
-//                "-XX:LogFile=/tmp/www.flydean.com.log"}
+@Warmup(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
+@Fork(value = 1,
+        jvmArgsPrepend = {"-XX:+UnlockDiagnosticVMOptions",
+                "-Xbatch",
+                "-XX:-TieredCompilation",
+                "-XX:+PrintCompilation"
+}
 )
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class LogCompilationUsage {
+public class PrintCompilationUsage {
 
     int x;
     @Benchmark
-    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public void testLogCompilation() {
+    public void testPrintCompilation() {
         for (int c = 0; c < 1000; c++) {
             synchronized (this) {
                 x += 0xFF;
@@ -36,7 +37,7 @@ public class LogCompilationUsage {
     }
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
-                .include(LogCompilationUsage.class.getSimpleName())
+                .include(PrintCompilationUsage.class.getSimpleName())
                 .build();
 
         new Runner(opt).run();
