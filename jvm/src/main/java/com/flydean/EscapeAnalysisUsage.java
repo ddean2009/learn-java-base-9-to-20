@@ -10,38 +10,35 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author wayne
- * @version PrintAssemblyUsage,  2020/5/29 9:07 上午
+ * @version EscapeAnalysisUsage,  2020/5/29 9:07 上午
  */
-@Warmup(iterations = 2, time = 1, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 2, time = 1, timeUnit = TimeUnit.SECONDS)
+@Warmup(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 1,
         jvmArgsPrepend = {
-        "-XX:+UnlockDiagnosticVMOptions",
-//                "-XX:PrintAssemblyOptions=att",
-//                "-XX:-PrintOptoAssembly",
-//                "-XX:-UseCompressedOops",
-                "-XX:CompileCommand=print,com.flydean.PrintAssemblyUsage::testPrintAssembly"
-//                "-XX:+PrintAssembly"
+                "-XX:+UnlockDiagnosticVMOptions",
+                "-XX:+DoEscapeAnalysis",
+                "-XX:+EliminateAllocations",
+                "-XX:+PrintEscapeAnalysis"
 }
 )
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class PrintAssemblyUsage {
+public class EscapeAnalysisUsage {
 
     int x;
     @Benchmark
-    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public void testPrintAssembly() {
+    public void testEscapeAnalysis() {
         for (int c = 0; c < 1000; c++) {
             synchronized (this) {
-                x += 0xFF;
+                x += 0x43;
             }
         }
     }
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
-                .include(PrintAssemblyUsage.class.getSimpleName())
+                .include(EscapeAnalysisUsage.class.getSimpleName())
                 .build();
 
         new Runner(opt).run();

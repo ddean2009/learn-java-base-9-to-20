@@ -1,10 +1,6 @@
 package com.flydean;
 
-import org.junit.Test;
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.profile.LinuxPerfAsmProfiler;
-import org.openjdk.jmh.profile.LinuxPerfProfiler;
-import org.openjdk.jmh.profile.StackProfiler;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -19,8 +15,9 @@ import java.util.concurrent.TimeUnit;
 @Warmup(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 1,
-        jvmArgsPrepend = {"-XX:-UseBiasedLocking",
-                "-XX:+UnlockDiagnosticVMOptions",
+        jvmArgsPrepend = {
+        "-XX:-UseBiasedLocking",
+                "-XX:LoopUnrollLimit=1",
                 "-XX:CompileCommand=print,com.flydean.LockOptimization::test"
 //                "-XX:+PrintAssembly"
 }
@@ -34,9 +31,9 @@ public class LockOptimization {
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public void test() {
-        for (int c = 0; c < 1000; c++) {
+        for (int i = 0; i < 1000; i++) {
             synchronized (this) {
-                x += 0x42;
+                x += 0x51;
             }
         }
     }
@@ -44,16 +41,7 @@ public class LockOptimization {
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(LockOptimization.class.getSimpleName())
-//                .include(LockOptimization.class.getSimpleName()+".*measureAll*")
-                // 预热5轮
-//                .warmupIterations(3)
-                // 度量10轮
-//                .measurementIterations(5)
-//                .forks(1)
-//                .addProfiler(StackProfiler.class)
-//                .addProfiler(LinuxPerfAsmProfiler.class,"mergeMargin=1000")
                 .build();
-
         new Runner(opt).run();
     }
 }
