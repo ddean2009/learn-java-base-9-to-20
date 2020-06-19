@@ -20,6 +20,8 @@ public class JolUsage {
     public void useJol(){
         log.info("{}", VM.current().details());
         log.info("{}", ClassLayout.parseClass(A.class).toPrintable());
+        log.info("{}", ClassLayout.parseClass(Object.class).toPrintable());
+        log.info("{}", ClassLayout.parseInstance(new Object()).toPrintable());
         HashMap hashMap= new HashMap();
         hashMap.put("flydean","www.flydean.com");
         log.info("{}", ClassLayout.parseClass(HashMap.class).toPrintable());
