@@ -5,4 +5,6 @@ package com.flydean;
  * @version CacheLine,  2020/6/19 8:52 上午
  */
 public class CacheLine {
+    public  long a;
+    public  long b;
 }
