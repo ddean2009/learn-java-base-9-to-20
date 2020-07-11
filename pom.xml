@@ -26,6 +26,11 @@
         <module>github-maven-repositry</module>
         <module>jol</module>
         <module>jvm</module>
+        <module>diagnostic</module>
+        <module>SPI-service-a</module>
+        <module>SPI-service-b</module>
+        <module>SPI-service-controller</module>
+        <module>SPI-service</module>
     </modules>
     <dependencies>
         <dependency>

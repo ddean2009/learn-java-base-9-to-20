@@ -1,13 +1,13 @@
-package com.flydean.controller;
+package com.flydean.base;
 
+
+import com.flydean.base.service.ModuleService;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.ServiceLoader;
 
 import static java.util.stream.Collectors.toList;
-
-import com.flydean.service.ModuleService;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author wayne
