@@ -1,4 +1,4 @@
-package com.flydean;
+package com.flydean.finalizer;
 
 /**
  * @author wayne

@@ -1,18 +1,15 @@
-package com.flydean;
+package com.flydean.finalizer;
 
 /**
  * @author wayne
- * @version SensitiveOperationFlag
+ * @version SensitiveOperation
  */
-public class SensitiveOperationFlag {
+public class SensitiveOperation {
 
-    private volatile boolean flag= false;
-
-    public SensitiveOperationFlag(){
+    public SensitiveOperation(){
         if(!doSecurityCheck()){
             throw new SecurityException("Security check failed!");
         }
-        flag=true;
     }
 
     //Security check return false
@@ -21,10 +18,6 @@ public class SensitiveOperationFlag {
     }
 
     public void storeMoney(){
-        if(!flag){
-            System.out.println("Object is not initiated yet!");
-            return;
-        }
         System.out.println("Store 1000000 RMB!");
     }
 }

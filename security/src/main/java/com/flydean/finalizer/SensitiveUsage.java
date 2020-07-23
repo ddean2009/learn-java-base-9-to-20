@@ -1,8 +1,6 @@
-package com.flydean;
+package com.flydean.finalizer;
 
 import org.junit.Test;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author wayne
