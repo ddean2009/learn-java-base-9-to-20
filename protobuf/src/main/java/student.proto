@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.flydean;
+
+option java_multiple_files = true;
+option java_package = "com.flydean.tutorial.protos";
+option java_outer_classname = "StudentListProtos";
+
+message Student {
+  optional string name = 1;
+  optional int32 id = 2;
+  optional string email = 3;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+  }
+
+  message PhoneNumber {
+    optional string number = 1;
+    optional PhoneType type = 2;
+  }
+
+  repeated PhoneNumber phones = 4;
+}
+
+message StudentList {
+  repeated Student student = 1;
+}
