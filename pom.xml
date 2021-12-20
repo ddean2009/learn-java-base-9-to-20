@@ -35,6 +35,7 @@
         <module>protobuf</module>
         <module>webSocket</module>
         <module>java-16</module>
+        <module>java-jni</module>
     </modules>
     <dependencies>
         <dependency>
