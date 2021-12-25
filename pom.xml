@@ -36,6 +36,7 @@
         <module>webSocket</module>
         <module>java-16</module>
         <module>java-jni</module>
+        <module>java-jna</module>
     </modules>
     <dependencies>
         <dependency>
