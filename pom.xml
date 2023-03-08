@@ -38,6 +38,7 @@
         <module>java-jni</module>
         <module>java-jna</module>
         <module>how-to-stop-thread</module>
+        <module>peek-and-map</module>
     </modules>
     <dependencies>
         <dependency>
