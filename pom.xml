@@ -39,6 +39,7 @@
         <module>java-jna</module>
         <module>how-to-stop-thread</module>
         <module>peek-and-map</module>
+        <module>lambda-and-checked-exception</module>
     </modules>
     <dependencies>
         <dependency>
